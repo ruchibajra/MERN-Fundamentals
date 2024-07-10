@@ -8,7 +8,6 @@ function App() {
     <>
     <GreetRamComponent/>
     <GreetComponent/>
-    <CardComponent/>
     </>
      );
 }

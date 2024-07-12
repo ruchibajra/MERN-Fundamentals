@@ -12,7 +12,7 @@ function Navbar() {
             <div>
               {/* Logo */}
               <Link to="/" className="flex items-center py-4 px-2">
-                <img src="/logo.png" alt="Logo" className="h-8 w-8 mr-2" />
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/012/986/755/small/abstract-circle-logo-icon-free-png.png" alt="Logo" className="h-8 w-8 mr-2" />
                 <span className="font-semibold text-gray-500 text-lg">HealMe</span>
               </Link>
             </div>

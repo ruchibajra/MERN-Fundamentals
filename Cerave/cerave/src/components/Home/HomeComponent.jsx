@@ -1,5 +1,6 @@
 import React from 'react'
 import CardComponent from '../Card/CardComponent'
+import ListViewComponent from '../../ListView/ListViewComponent';
 
 const HomeComponent = () => {
   const beautyProduct = [
@@ -15,9 +16,21 @@ const HomeComponent = () => {
       description: "This is the description of awesome dog.",
     },
   ];
+
+  const productList = [
+    {
+      productName: 'Fixderma Shadow Sunscreen',
+      price: 'Rs.700/-'
+    },
+    {
+      productName: 'Derma co Clay Daily Face Wash',
+      price: 'Rs.850/-'
+    },
+  ];
   return (
     <div className='my-5'>
       <CardComponent productData={beautyProduct}/>
+      <ListViewComponent productViewList = {productList}/>
     </div>
   )
 }

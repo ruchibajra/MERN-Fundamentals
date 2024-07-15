@@ -2,7 +2,7 @@ import "./App.css";
 // import CounterParentComponent from "./componentHomework/CounterParentComponent";
 // import DisplayParentComponent from "./componentHomework/DisplayParentComponent";
 // import ParentComponent from "./componentHomework/ParentComponent";
-import React from "react";
+import React, {useState} from "react";
 import CardComponent from "./components/Card/CardComponent";
 import AboutComponent from "./components/About/AboutComponent";
 import HomeComponent from "./components/Home/HomeComponent";
@@ -14,8 +14,11 @@ import ShopComponent from "./components/Shop/ShopComponent";
 import TestFunctionalProps from "./components/Card/TestFunctionalProps";
 import FunctionalProps from "./components/FunctionalProps/FunctionalProps";
 import AComponent from "./PropDrilling/AComponent";
+import ListView from "./ListView/ListViewComponent";
 
 function App() {
+  // const [items, setItems] = useState(['Item 1', 'Item 2', 'Item 3']);
+
 
   return (
     <>
@@ -24,6 +27,7 @@ function App() {
           <Navbar />
           <FunctionalProps />
           <AComponent/>
+          {/* <ListView items={items} /> */}
           <Routes>
             <Route path="/" element={<HomeComponent />} />
             <Route path="/about" element={<AboutComponent />} />

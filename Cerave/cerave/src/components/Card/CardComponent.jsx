@@ -30,7 +30,8 @@ const CardComponent = (props) => {
                 </div>
               </div>
           );
-        })}
+        }
+        )}
       </div>
 
 

@@ -19,6 +19,9 @@ import LifecycleComponent from "./components/LifecycleComponent/LifecycleCompone
 import ProductComponent from "./components/Product/ProductComponent";
 import ToDoList from "./components/ToDo/ToDoList";
 import ToDoApp from "./components/ToDo/ToDoApp";
+import Registration from "./Registration/Registration";
+import Login from "./components/Login/Login";
+import ContactForm from "./components/ContactForm/ContactForm";
 
 function App() {
   // const [items, setItems] = useState(['Item 1', 'Item 2', 'Item 3']);
@@ -33,6 +36,9 @@ function App() {
             <Route path="/about" element={<ToDoApp />} />
             <Route path="/shop" element={<LifecycleComponent />} />
             <Route path="/product" element={<ProductComponent />} />
+            <Route path="/contact" element={<ContactForm />} />
+            <Route path="/signup" element={<Registration/>} />
+            <Route path="/login" element={<Login/>}/>
           </Routes>
         </div>
       </Router>

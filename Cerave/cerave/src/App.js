@@ -19,7 +19,7 @@ import LifecycleComponent from "./components/LifecycleComponent/LifecycleCompone
 import ProductComponent from "./components/Product/ProductComponent";
 import ToDoList from "./components/ToDo/ToDoList";
 import ToDoApp from "./components/ToDo/ToDoApp";
-import Registration from "./Registration/Registration";
+import Registration from "./components/Registration/Registration";
 import Login from "./components/Login/Login";
 import ContactForm from "./components/ContactForm/ContactForm";
 

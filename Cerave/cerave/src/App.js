@@ -2,7 +2,7 @@ import "./App.css";
 // import CounterParentComponent from "./componentHomework/CounterParentComponent";
 // import DisplayParentComponent from "./componentHomework/DisplayParentComponent";
 // import ParentComponent from "./componentHomework/ParentComponent";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import CardComponent from "./components/Card/CardComponent";
 import AboutComponent from "./components/About/AboutComponent";
 import HomeComponent from "./components/Home/HomeComponent";
@@ -15,24 +15,24 @@ import TestFunctionalProps from "./components/Card/TestFunctionalProps";
 import FunctionalProps from "./components/FunctionalProps/FunctionalProps";
 import AComponent from "./PropDrilling/AComponent";
 import ListView from "./ListView/ListViewComponent";
+import LifecycleComponent from "./components/LifecycleComponent/LifecycleComponent";
+import ProductComponent from "./components/Product/ProductComponent";
+import ToDoList from "./components/ToDo/ToDoList";
+import ToDoApp from "./components/ToDo/ToDoApp";
 
 function App() {
   // const [items, setItems] = useState(['Item 1', 'Item 2', 'Item 3']);
-
 
   return (
     <>
       <Router>
         <div>
           <Navbar />
-          <FunctionalProps />
-          <AComponent/>
-          {/* <ListView items={items} /> */}
           <Routes>
             <Route path="/" element={<HomeComponent />} />
-            <Route path="/about" element={<AboutComponent />} />
-            {/* <Route path="/shop" element={<ShopComponent />} /> */}
-            {/* <Route path="/shop" element={<TestFunctionalProps />} /> */}
+            <Route path="/about" element={<ToDoApp />} />
+            <Route path="/shop" element={<LifecycleComponent />} />
+            <Route path="/product" element={<ProductComponent />} />
           </Routes>
         </div>
       </Router>
@@ -41,7 +41,6 @@ function App() {
     //   {/* <ParentComponent/>
     //   <CounterParentComponent/>
     //   <DisplayParentComponent/> */}
-
     // </>
   );
 }

@@ -1,6 +1,8 @@
-import React from 'react'
-import CardComponent from '../Card/CardComponent'
-import ListViewComponent from '../../ListView/ListViewComponent';
+import React from "react";
+import CardComponent from "../Card/CardComponent";
+import ListViewComponent from "../../ListView/ListViewComponent";
+import FunctionalProps from "../FunctionalProps/FunctionalProps";
+import AComponent from "../../PropDrilling/AComponent";
 
 const HomeComponent = () => {
   const beautyProduct = [
@@ -19,20 +21,22 @@ const HomeComponent = () => {
 
   const productList = [
     {
-      productName: 'Fixderma Shadow Sunscreen',
-      price: 'Rs.700/-'
+      productName: "Fixderma Shadow Sunscreen",
+      price: "Rs.700/-",
     },
     {
-      productName: 'Derma co Clay Daily Face Wash',
-      price: 'Rs.850/-'
+      productName: "Derma co Clay Daily Face Wash",
+      price: "Rs.850/-",
     },
   ];
   return (
-    <div className='my-5'>
-      <CardComponent productData={beautyProduct}/>
-      <ListViewComponent productViewList = {productList}/>
+    <div className="my-5">
+      <FunctionalProps />
+      <AComponent />
+      <CardComponent productData={beautyProduct} />
+      <ListViewComponent productViewList={productList} />
     </div>
-  )
-}
+  );
+};
 
-export default HomeComponent
+export default HomeComponent;

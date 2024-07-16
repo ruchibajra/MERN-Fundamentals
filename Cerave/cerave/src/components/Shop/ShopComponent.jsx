@@ -57,7 +57,7 @@ const ShopComponent = () => {
   // }
   return (
     <>
-    <div className='mx-2'>Shop Component</div>
+    <div className='mx-2'>Shop hiii Component</div>
     {/* <button onButtonClick={handleClick} className='bg-blue-400 text-white mx-2 rounded p-1'>Buy Now!!!</button> */}
     </>
   )

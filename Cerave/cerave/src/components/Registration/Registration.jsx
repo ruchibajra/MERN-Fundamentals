@@ -12,7 +12,7 @@ const Registration = () => {
         <p className="mt-2 text-center text-sm leading-5 text-gray-500 max-w">
             Or    
             <br/>
-            <a href="#"
+            <a href="/login"
                 className="font-medium text-blue-600 hover:text-blue-500 focus:outline-none focus:underline transition ease-in-out duration-150">
                 Login 
             </a>

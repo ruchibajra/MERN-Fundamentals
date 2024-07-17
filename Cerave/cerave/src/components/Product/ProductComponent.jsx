@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FormValidation from "../FormValidation/FormValidation";
 
 const ProductComponent = () => {
   const [username, setUsername] = useState("");
@@ -16,7 +17,7 @@ const ProductComponent = () => {
 
       {/* FORM */}
 
-      <h1>{username}</h1>
+      {/* <h1>{username}</h1>
       <form className="m-4 bg-blue-100 w-3/6 flex flex-col justify-center align-center" action="">
         <label className="text-1xl" htmlFor="username">
           {" "}
@@ -77,7 +78,9 @@ const ProductComponent = () => {
 
           <button className="bg-blue-900 text-white rounded p-1">Submit</button>
         </div>
-      </form>
+      </form> */}
+
+      <FormValidation/>
     </>
   );
 };

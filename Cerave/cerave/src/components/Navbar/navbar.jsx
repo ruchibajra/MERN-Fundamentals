@@ -23,6 +23,8 @@ function Navbar() {
               <Link to="/about" className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">About</Link>
               <Link to="/product" className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Product</Link>
               <Link to="/contact" className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Contact us</Link>
+              <Link to="/event" className="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Register Event</Link>
+
             </div>
           </div>
           {/* Secondary Navbar items */}
@@ -57,6 +59,8 @@ function Navbar() {
             <li><Link to="/about" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">About</Link></li>
             <li><Link to="/product" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Product</Link></li>
             <li><Link to="/contact" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Contact us</Link></li>
+            <li><Link to="/event" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Register Event</Link></li>
+
             <li><Link to="/login" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Log In</Link></li>
             <li><Link to="/signup" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Sign Up</Link></li>
           </ul>

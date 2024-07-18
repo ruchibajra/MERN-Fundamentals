@@ -25,7 +25,7 @@ const EventDetails = ({ prevStep, formValues, setFormValues }) => {
       console.log("Submitted Data: ", formValues);
 
       // Clear the form fields
-      setFormValues({ ...formValues, eventName: "", eventAddress: "" });
+      setFormValues({ ...formValues, name: "", email: "", phone: "", eventName: "", eventAddress: "" });
     }
   };
 

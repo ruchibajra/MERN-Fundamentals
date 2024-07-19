@@ -93,15 +93,15 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-app.get('/', (req, res) => {
-    res.send('Hello World - by ruchi');
-})
+// app.get('/', (req, res) => {
+//     res.send('Hello World - by ruchi');
+// })
 
-const users =[ 
-    {id : 1, name:'Rakesh Shah' },
-    {id : 2, name:'Ahdal Rana Shah' },
-    {id : 3, name:'Kanalika Shahendra Bahadur' }
-]
+// const users =[ 
+//     {id : 1, name:'Rakesh Shah' },
+//     {id : 2, name:'Ahdal Rana Shah' },
+//     {id : 3, name:'Kanalika Shahendra Bahadur' }
+// ]
 
 // very lightweight data is json so easy to circulate in internet json is a data ko type. only diff betn object and json is cotation in key 
 // authentication means user is logged in
@@ -109,12 +109,51 @@ const users =[
 
 
 // params: get data acc to id from url 
+// app.get('/getUsers/:id',(req,res)=> {
+//     const id = parseInt(req.params.id);
+//     const user = users.find(user => user.id === id);
+//     if(user){
+//         res.json(user);
+//     }else{
+//         res.status(404).send('User not found')
+//     }
+// })
 
-app.get('/getUsers/:id',(req,res)=> {
-    const id = parseInt(req.params.id);
-    const user = users.find(user => user.id === id);
-    if(user){
-        res.json(user);
+// app.listen(port, ()=>{
+//     console.log(`Server is running on the port ${port}`);
+// })
+
+
+
+
+
+app.get('/getUsers', (req, res) => {
+    res.json(students);
+})
+
+
+const students = [
+    {   
+        "name": "John",
+        "age": 30,
+        "isStudent": false,
+        "hobbies": ["reading", "swimming", "coding"],
+        "address": {
+            "street": "123 Main St",
+            "city": "Anytown",
+            "country": "USA",
+        },
+        "favoriteNumber": [7, 2 , 9],
+        "status": null
+    }
+]
+
+// params: get data acc to id from url 
+app.get('/getUsers/:name',(req,res)=> {
+    const name = req.params.name;
+    const student = students.find(student=>student.name===name);
+    if(student){
+        res.json(student);
     }else{
         res.status(404).send('User not found')
     }
@@ -123,3 +162,4 @@ app.get('/getUsers/:id',(req,res)=> {
 app.listen(port, ()=>{
     console.log(`Server is running on the port ${port}`);
 })
+

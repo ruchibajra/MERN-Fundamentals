@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-// import env 
+// import dotenv, need to install dotenv
 require("dotenv").config();
 const mongoURI = process.env.db_url;
 

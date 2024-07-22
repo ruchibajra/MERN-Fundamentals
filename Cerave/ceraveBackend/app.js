@@ -159,6 +159,8 @@
 //     console.log(`Server is running on the port ${port}`);
 // })
 
+
+
 // -------------------------------------MONGOOSE NODE JS START----------------------
 
 const express = require('express');
@@ -172,9 +174,9 @@ const port = 3000;
 //   .then(() => console.log('Connected!'));
 
 
-// efficient way to use:
-app.listen(port, ()=>{
-    console.log(`Server is running on the port ${port}`);
-});
+// app.listen(port, ()=>{
+//     console.log(`Server is running on the port ${port}`);
+// });
 
+// efficient way to use:
 connectDB();

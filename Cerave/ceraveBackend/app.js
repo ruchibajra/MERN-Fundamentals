@@ -89,9 +89,9 @@
 
 
 // EXPRESS MODEL - Creating Server!!!
-const express = require('express');
-const app = express();
-const port = 3000;
+// const express = require('express');
+// const app = express();
+// const port = 3000;
 
 // app.get('/', (req, res) => {
 //     res.send('Hello World - by ruchi');
@@ -123,43 +123,58 @@ const port = 3000;
 //     console.log(`Server is running on the port ${port}`);
 // })
 
+// app.get('/getUsers', (req, res) => {
+//     res.json(students);
+// })
 
 
-
-
-app.get('/getUsers', (req, res) => {
-    res.json(students);
-})
-
-
-const students = [
-    {   
-        "name": "John",
-        "age": 30,
-        "isStudent": false,
-        "hobbies": ["reading", "swimming", "coding"],
-        "address": {
-            "street": "123 Main St",
-            "city": "Anytown",
-            "country": "USA",
-        },
-        "favoriteNumber": [7, 2 , 9],
-        "status": null
-    }
-]
+// const students = [
+//     {   
+//         "name": "John",
+//         "age": 30,
+//         "isStudent": false,
+//         "hobbies": ["reading", "swimming", "coding"],
+//         "address": {
+//             "street": "123 Main St",
+//             "city": "Anytown",
+//             "country": "USA",
+//         },
+//         "favoriteNumber": [7, 2 , 9],
+//         "status": null
+//     }
+// ]
 
 // params: get data acc to id from url 
-app.get('/getUsers/:name',(req,res)=> {
-    const name = req.params.name;
-    const student = students.find(student=>student.name===name);
-    if(student){
-        res.json(student);
-    }else{
-        res.status(404).send('User not found')
-    }
-})
+// app.get('/getUsers/:name',(req,res)=> {
+//     const name = req.params.name;
+//     const student = students.find(student=>student.name===name);
+//     if(student){
+//         res.json(student);
+//     }else{
+//         res.status(404).send('User not found')
+//     }
+// })
 
+// app.listen(port, ()=>{
+//     console.log(`Server is running on the port ${port}`);
+// })
+
+// -------------------------------------MONGOOSE NODE JS START----------------------
+
+const express = require('express');
+const connectDB = require('./src/config/db');
+const app = express();
+const port = 3000;
+
+// not efficient way to use it:
+// const mongoose = require('mongoose');
+// mongoose.connect('mongodb://127.0.0.1:27017/Cerave')
+//   .then(() => console.log('Connected!'));
+
+
+// efficient way to use:
 app.listen(port, ()=>{
     console.log(`Server is running on the port ${port}`);
-})
+});
 
+connectDB();

@@ -1,0 +1,2 @@
+config file is added by ourself also .env and .gitignore file. node_module is ignore for saving for data hacking of essential datas
+

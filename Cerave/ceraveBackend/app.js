@@ -160,23 +160,26 @@
 // })
 
 
-
-// -------------------------------------MONGOOSE NODE JS START----------------------
-
-const express = require('express');
-const connectDB = require('./src/config/db');
-const app = express();
-const port = 3000;
-
 // not efficient way to use it:
 // const mongoose = require('mongoose');
 // mongoose.connect('mongodb://127.0.0.1:27017/Cerave')
 //   .then(() => console.log('Connected!'));
 
 
-// app.listen(port, ()=>{
-//     console.log(`Server is running on the port ${port}`);
-// });
+// -------------------------------------MONGOOSE NODE JS START----------------------
 
-// efficient way to use:
+const express = require('express');
+const connectDB = require('./src/config/db');
+const userProfileRoutes = require('./src/routes/userProfileRoutes');
+const app = express();
+const port = process.env.port;
+app.use(express.json()) /**convert text datatype to json */
+
+app.use('/user', userProfileRoutes);
+
 connectDB();
+
+app.listen(port, ()=>{
+    console.log(`Server is running on the port ${port}`);
+});
+

@@ -1,0 +1,40 @@
+// 2nd Step
+
+//controllers are used to handle request and response: like update data send data etc
+
+const express = require('express');
+const router = express.Router();
+const UserProfile = require('../models/userProfile')
+
+//controller to add a new user profile to the database
+const userProfile = (req, res) =>{
+
+    //frst process
+    //const {name, email} = req.body;
+
+    //next process
+    const data = req.body;
+    const userName = data.name;
+    const userEmail = data.email;
+
+    //third process
+    //const name= req.body.name
+
+    const newUserProfile = new UserProfile(
+        {
+            name: userName,
+            email: userEmail
+        });
+        newUserProfile
+        .save()
+        .then((data) => {
+            res
+            .status(201)
+            .json({message: "User profile added successfully", data})
+        })
+        .catch((err) => {
+            res.status(500).json({message:"Error Occured", err})
+        });
+};
+
+module.exports = userProfile;

@@ -1,5 +1,3 @@
-// 1st Step:
-
 const mongoose = require('mongoose');
 
 //destructure Schema from mongoose

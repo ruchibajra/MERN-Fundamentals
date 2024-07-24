@@ -1,7 +1,4 @@
-// 2nd Step
-
-//controllers are used to handle request and response: like update data send data etc
-
+// controller to create user profile
 const express = require('express');
 const router = express.Router();
 const UserProfile = require('../models/userProfile')
@@ -10,7 +7,7 @@ const UserProfile = require('../models/userProfile')
 const userProfile = (req, res) =>{
 
     //frst process
-    //const {name, email} = req.body;
+    // const {name, email} = req.body;
 
     //next process
     const data = req.body;
@@ -18,23 +15,24 @@ const userProfile = (req, res) =>{
     const userEmail = data.email;
 
     //third process
-    //const name= req.body.name
+    // const name= req.body.name
 
+    // const newUserProfile = new UserProfile({name, email});
     const newUserProfile = new UserProfile(
         {
             name: userName,
             email: userEmail
         });
-        newUserProfile
-        .save()
-        .then((data) => {
-            res
-            .status(201)
-            .json({message: "User profile added successfully", data})
-        })
-        .catch((err) => {
-            res.status(500).json({message:"Error Occured", err})
-        });
+    newUserProfile
+    .save()
+    .then((data) => {
+        res
+        .status(201)
+        .json({message: "User profile added successfully", data})
+    })
+    .catch((err) => {
+        res.status(500).json({message:"Error Occured", err})
+    });
 };
 
 module.exports = userProfile;

@@ -168,18 +168,21 @@
 
 // -------------------------------------MONGOOSE NODE JS START----------------------
 
-const express = require('express');
+const express=require('express');
 const connectDB = require('./src/config/db');
-const userProfileRoutes = require('./src/routes/userProfileRoutes');
-const app = express();
-const port = process.env.port;
-app.use(express.json()) /**convert text datatype to json */
+// from express
+const app=express();
+const port=3000;
+const userProfileRoutes =require('./src/routes/userProfileRoutes')
+
+//import env
+require("dotenv").config();
+connectDB();
+app.use(express.json()); 
 
 app.use('/user', userProfileRoutes);
 
-connectDB();
-
-app.listen(port, ()=>{
-    console.log(`Server is running on the port ${port}`);
+app.listen(port, ()=> {
+    console.log(`Server is running on port ${port}`)
 });
 

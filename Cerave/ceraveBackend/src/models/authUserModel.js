@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
 });
 
 // database ma save hunu bhanda agadi yo pre function chalaune call back function yo ho
-userSchema.pre('save', async (next) => {
+userSchema.pre('save', async function (next) {
   if (!this.isModified('password')) { /** this lai userSchema ko each value lai represent garcha, yesma chai password lai represent garcha which says if password ko value hash ma modify bhako chaina vane tala ko fn use gara */
     next();
   }

@@ -170,19 +170,26 @@
 
 const express=require('express');
 const connectDB = require('./src/config/db');
+const userProfileRoutes =require('./src/routes/userProfileRoutes')
+const authRoutes =require('./src/routes/authRoutes')
 // from express
 const app=express();
-const port=3000;
-const userProfileRoutes =require('./src/routes/userProfileRoutes')
+const port=5000;
+connectDB();
+
+
+
 
 //import env
 require("dotenv").config();
-connectDB();
 app.use(express.json()); 
 
 app.use('/user', userProfileRoutes);
+app.use('/api/auth', authRoutes);
 
 app.listen(port, ()=> {
     console.log(`Server is running on port ${port}`)
 });
+
+
 

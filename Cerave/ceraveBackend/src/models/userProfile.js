@@ -1,42 +1,65 @@
+// const mongoose = require('mongoose');
+
+// //destructure Schema from mongoose
+// const {Schema} = mongoose;
+// // const schema = mongoose.Schema();
+
+// const userProfileSchema = new Schema(
+//     {
+//         name:{
+//             type: String,
+//             required: true
+//         },
+//         email:{
+//             type: String,
+//             required: true
+//         },
+//         // address:{
+//         //     type: String,
+//         //     required: true
+//         // },
+//         // gender:{
+//         //     type: String,
+//         //     required: true
+//         // },
+//         // age:{
+//         //     type: Number,
+//         //     required: true
+//         // },
+//         // role:{
+//         //     type: String,
+//         //     required: true
+//         // },
+//         // password:{
+//         //     type: String,
+//         //     required: true
+//         // }
+//     }
+// );
+
+// module.exports = mongoose.model('UserProfile', userProfileSchema);
+// // const UserProfile = mongoose.model('UserProfile', userProfileSchema);
+// // model.exports = UserProfile;
+
+// ------------------------------------new start----------------------------------
+
+// models/profile.js
 const mongoose = require('mongoose');
 
-//destructure Schema from mongoose
-const {Schema} = mongoose;
-// const schema = mongoose.Schema();
+const profileSchema = new mongoose.Schema({
+    user: {
+        type: mongoose.Schema.Types.ObjectId, /**mongodb compass ko user ma id ko value is object  */
+        ref: 'User',
+        required: true
+    },
+    bio: {
+        type: String,
+        maxlength: 500
+    },
+    profileImage: {
+        type: String // Store the URL of the uploaded image
+    },
+    // add more
+});
 
-const userProfileSchema = new Schema(
-    {
-        name:{
-            type: String,
-            required: true
-        },
-        email:{
-            type: String,
-            required: true
-        },
-        // address:{
-        //     type: String,
-        //     required: true
-        // },
-        // gender:{
-        //     type: String,
-        //     required: true
-        // },
-        // age:{
-        //     type: Number,
-        //     required: true
-        // },
-        // role:{
-        //     type: String,
-        //     required: true
-        // },
-        // password:{
-        //     type: String,
-        //     required: true
-        // }
-    }
-);
-
-module.exports = mongoose.model('UserProfile', userProfileSchema);
-// const UserProfile = mongoose.model('UserProfile', userProfileSchema);
-// model.exports = UserProfile;
+module.exports = mongoose.model('Profile', profileSchema);

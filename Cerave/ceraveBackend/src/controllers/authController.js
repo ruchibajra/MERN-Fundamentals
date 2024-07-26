@@ -64,19 +64,21 @@ const loginUser = async (req, res) => {
       return res.status(400).json({ msg: 'Invalid credentials' });
     }
 
+
     const payload = {
       user: {
         id: user.id,
       },
     };
 
+    // generates token
     jwt.sign(
       payload,
       process.env.JWT_SECRET,
       { expiresIn: '1h' },
       (err, token) => {
         if (err) throw err;
-        res.json({ token });
+        res.json({ msg: "user logged in successfully", token: `Bearer ${token}`, user: user });
       }
     );
   } catch (err) {

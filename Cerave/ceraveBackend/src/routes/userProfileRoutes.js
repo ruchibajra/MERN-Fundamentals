@@ -1,8 +1,18 @@
-const express = require('express');
+// const express = require('express');
+// const userProfile = require('../controllers/userProfileControllers');
+
+// const router = express.Router();
+
+// router.post('/userProfile', userProfile);
+
+// module.exports = router;
+
+const express=require('express');
 const userProfile = require('../controllers/userProfileControllers');
+const router=express.Router();
 
-const router = express.Router();
+router.post('/userProfile',userProfile);
 
-router.post('/userProfile', userProfile);
 
-module.exports = router;
+
+module.exports=router;

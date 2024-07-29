@@ -1,3 +1,5 @@
+// register
+
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs'); /** must install bcrypt used to bring hash in password for encryption */
 

@@ -1,5 +1,6 @@
-const multer = require('multer');
+const multer = require('multer'); /**file handling like uplaod files in node js */
 const { diskStorage } = require('multer');
+// const diskStorage = multer.diskStorage;
 const path = require('path');
 
 // Regular expression to eliminate whitespace and special characters from file names
@@ -10,13 +11,13 @@ const sanitizeFileName = (imageName) => {
 
 // Function to handle file naming
 const filename = (req, file, next) => {
-  let lastDotIndex = file.originalname.lastIndexOf(".");
-  let originalname = file.originalname.substring(0, lastDotIndex);
-  let ext = file.originalname.substring(lastDotIndex);
-  next(null, `${sanitizeFileName(originalname)}-${Date.now()}${ext}`);
+  let lastDotIndex = file.originalname.lastIndexOf("."); /**[ruchi profile, .png] */
+  let originalname = file.originalname.substring(0, lastDotIndex); /** 0 index means [ruchi profile] */
+  let ext = file.originalname.substring(lastDotIndex); /**[.png] */
+  next(null, `${sanitizeFileName(originalname)}-${Date.now()}${ext}`); /** ruchi-profile-2024-07-29-9am.png */
 };
 
-// Function to filter file types
+// Function to filter file types - upload gareko file yo format ma cha ki nai check garni fn
 const filter = (req, file, next) => {
   const allowedTypes = [
     "image/jpeg",
@@ -45,9 +46,15 @@ const getDestination = (folderName) => {
 
 // Storage configurations
 const profileImageStorage = diskStorage({
-  destination: getDestination("profiles"),
-  filename,
+  destination: getDestination("profiles"), /** kata gayera store garne and  */
+  filename, /**file ko name store garxa*/
 });
+
+// for product image if needed in future:
+// const productImageStorage = diskStorage({
+//   destination: getDestination("products"),
+//   filename,
+// });
 
 // Multer instances
 const profileImage = multer({

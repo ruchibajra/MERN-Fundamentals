@@ -170,7 +170,6 @@
 
 const express=require('express');
 const connectDB = require('./src/config/db');
-const userProfileRoutes =require('./src/routes/userProfileRoutes')
 const authRoutes =require('./src/routes/authRoutes')
 const profileRoutes = require("./src/routes/profileRoutes");
 
@@ -185,7 +184,7 @@ connectDB();
 require("dotenv").config();
 app.use(express.json()); 
 
-app.use('/user', userProfileRoutes);
+// app.use('/user', userProfileRoutes);
 app.use('/api/auth', authRoutes);
 
 // Serve static files from the 'uploads' directory

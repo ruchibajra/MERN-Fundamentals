@@ -68,6 +68,8 @@ const registerUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
+  // console.log(email)
+  // console.log(password)
 
   try {
     let user = await User.findOne({ email });
@@ -76,7 +78,9 @@ const loginUser = async (req, res) => {
       return res.status(400).json({ msg: 'Invalid credentials' });
     }
 
+    // console.log(user)
     const isMatch = await bcrypt.compare(password, user.password);
+    // console.log(isMatch)
 
     if (!isMatch) {
       return res.status(400).json({ msg: 'Invalid credentials' });

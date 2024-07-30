@@ -172,6 +172,8 @@ const express=require('express');
 const connectDB = require('./src/config/db');
 const authRoutes =require('./src/routes/authRoutes')
 const profileRoutes = require("./src/routes/profileRoutes");
+const productRoutes = require("./src/routes/productRoutes");
+const categoryRoutes = require("./src/routes/categoryRoutes");
 
 
 // from express
@@ -186,10 +188,12 @@ app.use(express.json());
 
 // app.use('/user', userProfileRoutes);
 app.use('/api/auth', authRoutes);
-
 // Serve static files from the 'uploads' directory
 app.use("/uploads", express.static(__dirname + "/uploads")); /**making upload file public as it only take public file */
 app.use('/api/profile', profileRoutes);
+app.use('/createProduct', productRoutes);
+app.use('/createCategory', categoryRoutes);
+
 
 app.listen(port, ()=> {
     console.log(`Server is running on port ${port}`)

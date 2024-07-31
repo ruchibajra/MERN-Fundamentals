@@ -17,6 +17,13 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  role:{
+    type: String,
+    enum:['admin', 'user'],
+    default: "user",  
+
+},
+
 });
 
 // database ma save hunu bhanda agadi yo pre function chalaune call back function yo ho

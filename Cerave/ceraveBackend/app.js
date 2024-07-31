@@ -181,17 +181,13 @@ const app=express();
 const port=5000;
 connectDB();
 
-
-//import env
 require("dotenv").config();
-app.use(express.json()); 
 
-// app.use('/user', userProfileRoutes);
+app.use(express.json()); 
 app.use('/api/auth', authRoutes);
-// Serve static files from the 'uploads' directory
 app.use("/uploads", express.static(__dirname + "/uploads")); /**making upload file public as it only take public file */
 app.use('/api/profile', profileRoutes);
-app.use('/createProduct', productRoutes);
+app.use('/api/product', productRoutes);
 app.use('/createCategory', categoryRoutes);
 
 

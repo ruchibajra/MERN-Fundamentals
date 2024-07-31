@@ -9,7 +9,7 @@ const { response } = require('express');
 dotenv.config();
 
 const registerUser = async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, role} = req.body;
 
   try {
     let user = await User.findOne({ email }); /**napayesamma wait gara, and find user with unique email*/
@@ -22,6 +22,7 @@ const registerUser = async (req, res) => {
       name, /**name:name */
       email, /**email:email */
       password, /**password:password */
+      role
 
       // name : name  (left is database field, right is data k airako value)
     });

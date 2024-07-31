@@ -1,4 +1,4 @@
-const multer = require('multer'); /**file handling like uplaod files in node js */
+const multer = require('multer');
 const { diskStorage } = require('multer');
 // const diskStorage = multer.diskStorage;
 const path = require('path');
@@ -11,13 +11,13 @@ const sanitizeFileName = (imageName) => {
 
 // Function to handle file naming
 const filename = (req, file, next) => {
-  let lastDotIndex = file.originalname.lastIndexOf("."); /**[ruchi profile, .png] */
-  let originalname = file.originalname.substring(0, lastDotIndex); /** 0 index means [ruchi profile] */
-  let ext = file.originalname.substring(lastDotIndex); /**[.png] */
-  next(null, `${sanitizeFileName(originalname)}-${Date.now()}${ext}`); /** ruchi-profile-2024-07-29-9am.png */
+  let lastDotIndex = file.originalname.lastIndexOf(".");
+  let originalname = file.originalname.substring(0, lastDotIndex);
+  let ext = file.originalname.substring(lastDotIndex);
+  next(null, `${sanitizeFileName(originalname)}-${Date.now()}${ext}`);
 };
 
-// Function to filter file types - upload gareko file yo format ma cha ki nai check garni fn
+// Function to filter file types
 const filter = (req, file, next) => {
   const allowedTypes = [
     "image/jpeg",
@@ -46,15 +46,16 @@ const getDestination = (folderName) => {
 
 // Storage configurations
 const profileImageStorage = diskStorage({
-  destination: getDestination("profiles"), /** kata gayera store garne and  */
-  filename, /**file ko name store garxa*/
+  destination: getDestination("profiles"),
+  filename,
 });
 
-// for product image if needed in future:
-// const productImageStorage = diskStorage({
-//   destination: getDestination("products"),
-//   filename,
-// });
+// product image storage
+
+const productImageStorage = diskStorage({
+  destination: getDestination("products"),
+  filename,
+});
 
 // Multer instances
 const profileImage = multer({
@@ -62,6 +63,13 @@ const profileImage = multer({
   fileFilter: filter,
 });
 
+// product image 
+const productImage = multer({
+  storage: productImageStorage,
+  fileFilter: filter,
+});
+
 module.exports = {
   profileImage,
+  productImage,
 };

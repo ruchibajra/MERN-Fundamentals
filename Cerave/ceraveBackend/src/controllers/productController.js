@@ -1,7 +1,8 @@
 const productModel = require("../models/productModel");
 
 
-const productController = (req, res) => {
+// add product
+const productController = async (req, res) => {
     const{name, description, price, category, reviews} = req.body;
 
     const newProduct = new productModel({name, description, price, category, reviews});
@@ -16,5 +17,7 @@ const productController = (req, res) => {
         res.status(500).json({message: "error occured", err});
     });
 }
+
+
 
 module.exports = productController;

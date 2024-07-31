@@ -1,3 +1,4 @@
+// const { productImage } = require("../middleware/uploadMiddleware");
 const Product = require("../models/productModel");
 const domain = "http://localhost:5000";
 
@@ -10,26 +11,10 @@ const sendErrorResponse = (res, error) => {
 // Create a new product (Admin Only)
 const createProduct = async (req, res) => {
   try {
-    const {
-      category,
-      name,
-      price,
-      description,
-      brand,
-      rating,
-      numReviews,
-      countInStock,
-    } = req.body;
-    let productData = {
-      category,
-      name,
-      price,
-      description,
-      brand,
-      rating,
-      numReviews,
-      countInStock,
-    };
+    const {category, name,price,description,brand,rating,numReviews,countInStock} = req.body;
+    
+    // check
+    let productData = {category,name,price,description,brand,rating,numReviews,countInStock};
 
     if (req.file) {
       const productImage = `${domain}/uploads/products/${req.file.filename}`;
@@ -49,29 +34,12 @@ const createProduct = async (req, res) => {
   }
 };
 
+
 // Update a product (Admin Only)
 const updateProduct = async (req, res) => {
   try {
-    const {
-      category,
-      name,
-      price,
-      description,
-      brand,
-      rating,
-      numReviews,
-      countInStock,
-    } = req.body;
-    let updateData = {
-      category,
-      name,
-      price,
-      description,
-      brand,
-      rating,
-      numReviews,
-      countInStock,
-    };
+    const {category, name, price, description, brand, rating, numReviews, countInStock,} = req.body;
+    let updateData = {category, name, price, description, brand, rating, numReviews, countInStock,};
 
     if (req.file) {
       const productImage = `${domain}/uploads/products/${req.file.filename}`;
@@ -95,6 +63,8 @@ const updateProduct = async (req, res) => {
     sendErrorResponse(res, error);
   }
 };
+
+/** 
 
 // Get all products (Public)
 const getProducts = async (req, res) => {
@@ -155,11 +125,12 @@ const deleteProduct = async (req, res) => {
     sendErrorResponse(res, error);
   }
 };
+*/
 
 module.exports = {
   createProduct,
   updateProduct,
-  getProducts,
-  getProduct,
-  deleteProduct,
+  // getProducts,
+  // getProduct,
+  // deleteProduct,
 };

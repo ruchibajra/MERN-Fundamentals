@@ -2,8 +2,6 @@ const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 dotenv.config();
 
-// next: decision lincha: guard le gate bhitra pathaucha and next kam gara vice versa
-// bearer for security purpose added before but replace it later: works as cookies
 const authMiddleware = (req, res, next) => {
   const token = req.header('Authorization').replace('Bearer ', '');
 
@@ -15,7 +13,6 @@ const authMiddleware = (req, res, next) => {
   // if token is found then:
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    console.log(decoded);
     req.user = decoded.user; /** req.user like a special database which can be access from anywhere of backend data file to obtain data */
     next(); /**next kam gara */
   } catch (err) {
@@ -24,3 +21,6 @@ const authMiddleware = (req, res, next) => {
 };
 
 module.exports = authMiddleware;
+
+// next: decision lincha: guard le gate bhitra pathaucha and next kam gara vice versa
+// bearer for security purpose added before but replace it later: works as cookies

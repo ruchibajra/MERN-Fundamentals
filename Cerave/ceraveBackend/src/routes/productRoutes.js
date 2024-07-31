@@ -1,23 +1,8 @@
-// const express = require('express');
-// const productController = require('../controllers/productController');
-// const authMiddleware = require('../middleware/authMiddleware');
-// const { productImage } = require('../middleware/uploadMiddleware');
-// const router = express.Router();
-
-// router.post('/create', productController.addProduct);
-// router.patch('/:id', authMiddleware, productImage.single('productImage'), productController.updateProduct);
-// // router.patch('/:id',  productController.updateProduct);
-
-
-// module.exports = router;
-
-
 const express = require('express');
 const router = express.Router();
-
-// const authMiddleware = require('../middleware/authMiddleware');
-// const authorizeRole = require('../middleware/authorizationMiddleware');
 const { productImage } = require('../middleware/uploadMiddleware');
+const authMiddleware = require('../middleware/authMiddleware');
+const authorizeRole = require('../Middleware/authorizationMiddleware');
 const {
   createProduct,
   updateProduct,
@@ -26,8 +11,6 @@ const {
   getProducts
 } = require('../Controllers/productController');
 
-const authMiddleware = require('../middleware/authMiddleware');
-const authorizeRole = require('../Middleware/authorizationMiddleware');
 
 /**
  * @description Create a new product
@@ -47,7 +30,7 @@ router.post('/create', authMiddleware, authorizeRole('admin'), productImage.sing
  * @param {Object} res - Express response object
  * @returns {Object} response - The response object containing the updated product
  */
-router.put('/update/:id', authMiddleware, authorizeRole('admin'), productImage.single('productImage'), updateProduct);
+router.patch('/update/:id', authMiddleware, authorizeRole('admin'), productImage.single('productImage'), updateProduct);
 
 /**
  * @description Delete a product
@@ -57,7 +40,7 @@ router.put('/update/:id', authMiddleware, authorizeRole('admin'), productImage.s
  * @param {Object} res - Express response object
  * @returns {Object} response - The response object confirming deletion
  */
-router.delete('/delete/:id', authMiddleware, authorizeRole('admin'), deleteProduct);
+// router.delete('/delete/:id', authMiddleware, authorizeRole('admin'), deleteProduct);
 
 /**
  * @description Get a single product by ID
@@ -67,7 +50,7 @@ router.delete('/delete/:id', authMiddleware, authorizeRole('admin'), deleteProdu
  * @param {Object} res - Express response object
  * @returns {Object} response - The response object containing the product data
  */
-router.get('/:id', getProduct);
+// router.get('/:id', getProduct);
 
 /**
  * @description Get all products
@@ -77,6 +60,6 @@ router.get('/:id', getProduct);
  * @param {Object} res - Express response object
  * @returns {Object} response - The response object containing an array of products
  */
-router.get('/', getProducts);
+// router.get('/', getProducts);
 
 module.exports = router;

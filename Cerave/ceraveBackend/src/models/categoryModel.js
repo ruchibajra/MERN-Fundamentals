@@ -4,12 +4,13 @@ const { Schema } = mongoose;
 const categorySchema = new Schema({
   name: {
     type: String,
-    required: [true, "Category name is required"],
+    required: true,
     unique: true,
   },
+
   description: {
     type: String,
-    required: [true, "Category description is required"],
+    required:true,
   },
 });
 

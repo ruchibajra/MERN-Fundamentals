@@ -1,5 +1,6 @@
 const Category = require("../models/categoryModel");
 
+
 // Helper function to send error responses
 const sendErrorResponse = (res, error) => {
   console.log(error);
@@ -38,38 +39,74 @@ const createCategory = async (req, res) => {
 };
 
 
-// controller for updating a category (admin only!)
 const updateCategory = async (req, res) => {
- 
-  try {
-    const { name, description } = req.body;
+  try{
+    const {name, description} = req.body;
     let updateData = {name, description};
 
-    const category = await Category.findByIdAndUpdate(req.params.id, updateData, {
-      new: true,
-    });
+    const category = await Category.findOneAndUpdate(
+      req.params.id, 
+      updateData,
+      {new:true},
+    )
 
-    if (!category) {
+    if(!category){
       return res.status(404).json({ msg: "Category not found" });
     }
-    if (!name) {
-      category.description = description;
-    } else if (!description) {
-      category.name = name;
-    } else {
-      category.name = name;
-      category.description = description;
-    }
-    return res.status(200).json({
+
+    res.status(200).json({
       msg: "Category updated successfully",
       category: category,
-      success: true ,
+      success: true,
     });
-  } catch (error) {
-    // return res.status(500).json({ msg: error.message });
-    sendErrorResponse(res, error);
-
+  } catch{
+    console.log("errorr");
+    // sendErrorResponse(res, error);
   }
 };
 
-module.exports = {createCategory, updateCategory};
+
+// controller for deleting a category
+const deleteCategory = async (req, res) => {
+  try {
+    const category = await Category.findByIdAndDelete(req.params.id);
+    if (!category) {
+      return res.status(404).json({ msg: "Category not found" });
+    }
+    return res.status(200).json({ msg: "Category deleted successfully" });
+  } catch (error) {
+    return res.status(500).json({ msg: error.message });
+  }
+};
+
+// controller for getting all categories
+
+const getCategories = async (req, res) => {
+  try {
+    const categories = await Category.find();
+    return res
+      .status(200)
+      .json({ msg: "category fetched successfully", categories });
+  } catch (error) {
+    return res.status(500).json({ msg: error.message });
+  }
+};
+
+// controller for getting a single category
+
+const getCategory = async (req, res) => {
+  try {
+    const category = await Category.findById(req.params.id);
+    if (!category) {
+      return res.status(404).json({ msg: "Category not found" });
+    }
+    return res
+      .status(200)
+      .json({ msg: "Category fetched successfully", category });
+  } catch (error) {
+    return res.status(500).json({ msg: error.message });
+  }
+};
+
+
+module.exports = {createCategory, updateCategory, deleteCategory, getCategories, getCategory};

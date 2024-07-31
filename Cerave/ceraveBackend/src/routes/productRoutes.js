@@ -8,7 +8,8 @@ const {
   updateProduct,
   deleteProduct,
   getProduct,
-  getProducts
+  getProducts,
+  getProductsByCategory
 } = require('../Controllers/productController');
 
 
@@ -40,7 +41,7 @@ router.patch('/update/:id', authMiddleware, authorizeRole('admin'), productImage
  * @param {Object} res - Express response object
  * @returns {Object} response - The response object confirming deletion
  */
-// router.delete('/delete/:id', authMiddleware, authorizeRole('admin'), deleteProduct);
+router.delete('/delete/:id', authMiddleware, authorizeRole('admin'), deleteProduct);
 
 /**
  * @description Get a single product by ID
@@ -50,7 +51,7 @@ router.patch('/update/:id', authMiddleware, authorizeRole('admin'), productImage
  * @param {Object} res - Express response object
  * @returns {Object} response - The response object containing the product data
  */
-// router.get('/:id', getProduct);
+router.get('/:id', getProduct);
 
 /**
  * @description Get all products
@@ -60,6 +61,10 @@ router.patch('/update/:id', authMiddleware, authorizeRole('admin'), productImage
  * @param {Object} res - Express response object
  * @returns {Object} response - The response object containing an array of products
  */
-// router.get('/', getProducts);
+router.get('/', getProducts);
+
+
+router.get('/products/category/:categoryId', getProductsByCategory);
+
 
 module.exports = router;

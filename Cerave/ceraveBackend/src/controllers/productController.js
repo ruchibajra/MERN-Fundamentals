@@ -49,6 +49,7 @@ const updateProduct = async (req, res) => {
     const product = await Product.findByIdAndUpdate(req.params.id, updateData, {
       new: true,
     });
+    console.log(product);
 
     if (!product) {
       return res.status(404).json({ msg: "Product not found" });
@@ -63,6 +64,67 @@ const updateProduct = async (req, res) => {
     sendErrorResponse(res, error);
   }
 };
+
+// Delete a product (Admin Only)
+const deleteProduct = async (req, res) => {
+  try {
+    const product = await Product.findByIdAndDelete(req.params.id);
+
+    if (!product) {
+      return res.status(404).json({ msg: "Product not found" });
+    }
+
+    res
+      .status(200)
+      .json({ msg: "Product deleted successfully", success: true });
+  } catch (error) {
+    sendErrorResponse(res, error);
+  }
+};
+
+// Get all products (Public)
+const getProducts = async (req, res) => {
+  const { search, sort } = req.query;
+  let query = {};
+  if (search) {
+    query.name = { $regex: search, $options: "i" };
+  }
+
+  let products = await Product.find(query);
+
+  if (sort) {
+    const sortOrder = sort === "asc" ? 1 : -1;
+    products = products.sort((a, b) => (a.price - b.price) * sortOrder);
+  }
+
+  res.json(products);
+};
+
+// Get a single product by ID (Public)
+const getProduct = async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id);
+
+    if (!product) {
+      return res.status(404).json({ msg: "Product not found" });
+    }
+
+    res.status(200).json(product);
+  } catch (error) {
+    sendErrorResponse(res, error);
+  }
+};
+
+// Get all products (Public) and filter by category
+const getProductsByCategory = async (req, res) => {
+  try {
+    const products = await Product.find({ category: req.params.categoryId });
+    res.status(200).json(products);
+  } catch (error) {
+    sendErrorResponse(res, error);
+  }
+};
+
 
 /** 
 
@@ -130,7 +192,8 @@ const deleteProduct = async (req, res) => {
 module.exports = {
   createProduct,
   updateProduct,
-  // getProducts,
-  // getProduct,
-  // deleteProduct,
+  getProducts,
+  getProduct,
+  deleteProduct,
+  getProductsByCategory
 };

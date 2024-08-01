@@ -63,24 +63,31 @@ const createCategory = async (req, res) => {
 // };
 
 // controller for updating a category
-
 const updateCategory = async (req, res) => {
   const { name, description } = req.body;
   try {
-    const category = await Category.findOne({ _id: req.params.id });
+    // Create an object to hold the fields to be updated
+    const updateCategory = {};
+    
+    // Conditionally add fields to the updateCategory object
+    if (name) updateCategory.name = name;
+    if (description) updateCategory.description = description;
+
+    // Check if there are fields to update
+    if (Object.keys(updateCategory).length === 0) {
+      return res.status(400).json({ msg: "No fields provided to update" });
+    }
+
+    const category = await Category.findByIdAndUpdate(
+      { _id: req.params.id },
+      updateCategory,
+      { new: true }
+    );
+
     if (!category) {
       return res.status(404).json({ msg: "Category not found" });
     }
-    if (!name) {
-      category.description = description;
-    } else if (!description) {
-      category.name = name;
-    } else {
-      category.name = name;
-      category.description = description;
-    }
 
-    await category.save();
     return res
       .status(200)
       .json({ msg: "Category updated successfully", category });
@@ -88,6 +95,7 @@ const updateCategory = async (req, res) => {
     return res.status(500).json({ msg: error.message });
   }
 };
+
 
 
 
@@ -104,6 +112,8 @@ const deleteCategory = async (req, res) => {
     return res.status(500).json({ msg: error.message });
   }
 };
+
+
 
 // controller for getting all categories
 

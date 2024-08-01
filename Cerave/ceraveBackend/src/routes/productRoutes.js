@@ -10,7 +10,6 @@ const {
   getProduct,
   getProducts,
   getProductsByCategory,
-  getAllProducts
 } = require('../Controllers/productController');
 
 
@@ -62,7 +61,7 @@ router.get('/:id', getProduct);
  * @param {Object} res - Express response object
  * @returns {Object} response - The response object containing an array of products
  */
-router.get('/', getAllProducts);
+router.get('/', getProducts);
 
 
 router.get('/products/category/:categoryId', getProductsByCategory);

@@ -82,35 +82,49 @@ const deleteProduct = async (req, res) => {
   }
 };
 
-// Get all products (Public)
-// const getProducts = async (req, res) => {
-//   const { search, sort } = req.query;
-//   let query = {};
-//   if (search) {
-//     query.name = { $regex: search, $options: "i" };
+// Delete ALL  product (Admin Only)
+// const deleteAllProduct = async (req, res) => {
+//   try {
+//     await Product.deleteMany();
+
+//     res
+//       .status(200)
+//       .json({ msg: "Product deleted successfully", success: true });
+    
+//   } catch (error) {
+//     sendErrorResponse(res, error);
 //   }
-
-//   let products = await Product.find(query);
-
-//   if (sort) {
-//     const sortOrder = sort === "asc" ? 1 : -1;
-//     products = products.sort((a, b) => (a.price - b.price) * sortOrder);
-//   }
-
-//   res.json(products);
 // };
 
-const getAllProducts = async(req, res) => {
-  try{
-    const products = await Product.find();
-    res
-      .status(200)
-      .json({ msg: "Product found successfully", products:products });
-
-  }catch(error){
-    sendErrorResponse(res, error);
+// Get all products (Public)
+const getProducts = async (req, res) => {
+  const { search, sort } = req.query; //shampoo. asc
+  let query = {};
+  if (search) {
+    query.name = { $regex: search, $options: "i" };
   }
+
+  let products = await Product.find(query);
+
+  if (sort) {
+    const sortOrder = sort === "asc" ? 1 : -1;
+    products = products.sort((a, b) => (a.price - b.price) * sortOrder);
+  }
+
+  res.json(products);
 };
+
+// const getAllProducts = async(req, res) => {
+//   try{
+//     const products = await Product.find();
+//     res
+//       .status(200)
+//       .json({ msg: "Product found successfully", products:products });
+
+//   }catch(error){
+//     sendErrorResponse(res, error);
+//   }
+// };
 
 // Get a single product by ID (Public)
 const getProduct = async (req, res) => {
@@ -143,7 +157,7 @@ module.exports = {
   createProduct,
   updateProduct,
   getProduct,
+  getProducts,
   deleteProduct,
   getProductsByCategory,
-  getAllProducts
 };

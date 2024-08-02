@@ -1,4 +1,4 @@
 # this file is added so that github ignores this file to be published
 
-./node_modules
-./.env
+/node_modules
+/.env

@@ -1,0 +1,215 @@
+[33mcommit a521e1fb0aedbebb7aece32c5bfaa48786f6b45d[m[33m ([m[1;36mHEAD -> [m[1;32mmedsellbackend[m[33m)[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Fri Aug 2 07:47:23 2024 +0545
+
+    new add: backendFeature is added
+
+[33mcommit 5e2ea02510bbfbcfb1480c5ea93e19f1fb8ffa43[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Thu Aug 1 10:19:12 2024 +0545
+
+    update category fixed, change from raw data in postman
+
+[33mcommit 7baee15ab654eeb45f4306deb8c07f2ee6b310cb[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Thu Aug 1 08:13:35 2024 +0545
+
+    clear commit
+
+[33mcommit 196ea0c9c474ab777386a47d636ab0ff449b9996[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Wed Jul 31 23:15:09 2024 +0545
+
+    product and category, all add, update, delete, get completed, issue in category update
+
+[33mcommit 24b0a295e4eace2531568a37d1b36e3581ee111b[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Wed Jul 31 20:24:27 2024 +0545
+
+    product add and update full complete, category add complete, category update issue
+
+[33mcommit 8c1903a1663c98cdc007e5576d4cf7db39ce4da5[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Wed Jul 31 17:49:54 2024 +0545
+
+    product update half
+
+[33mcommit 8d2bbf69ac421614c7613a16f31ff96125caead4[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Wed Jul 31 11:08:14 2024 +0545
+
+    product category add in cls
+
+[33mcommit cc6d5fbdd1726c90ec33119ef8aec46dbec78fff[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Tue Jul 30 21:20:15 2024 +0545
+
+    created category, added products and linked both successfully
+
+[33mcommit b3bc67abcda6c90eaecece71440f9706a52b20bd[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Tue Jul 30 07:49:44 2024 +0545
+
+    login,register,updateProfile,uploadPhoto all completed and fixed
+
+[33mcommit ca27e8eaf9460f30c0b001e05597dfe89ec6cd69[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Mon Jul 29 22:28:16 2024 +0545
+
+    register and user profile tgt store completed, profile update issue
+
+[33mcommit de09f42c481efda76c677eb1818549206661d595[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Fri Jul 26 08:46:21 2024 +0545
+
+    login and user profile
+
+[33mcommit 03b64c2b2bc7d916bae560a2770e9a8b7fdd8af3[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Thu Jul 25 09:04:54 2024 +0545
+
+    register token generated success
+
+[33mcommit 3e5e399c7d9b107d5e4c384e5259ebeb09fe377a[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Thu Jul 25 08:45:42 2024 +0545
+
+    backend setup and authentication done
+
+[33mcommit c4099be671137a73ca40dab1250759bfa52c1634[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Wed Jul 24 08:31:51 2024 +0545
+
+    api issue fixed
+
+[33mcommit f5d82dc15bc8c2c49d3e1aa1a59b676562bd2cfb[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Wed Jul 24 08:21:43 2024 +0545
+
+    api update
+
+[33mcommit b71ecbf257f120f57fd9088145e9414b8d22703d[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Mon Jul 22 23:20:06 2024 +0545
+
+    mongoose node js added
+
+[33mcommit 62083408c01b8b93a7807f638fd18cd3674274f2[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Mon Jul 22 08:41:01 2024 +0545
+
+    mongodb mongoose connected
+
+[33mcommit 6cde03de393b0d7779174636b02a8d6170241aba[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Fri Jul 19 09:12:00 2024 +0545
+
+    json file to server
+
+[33mcommit 1f4e8f9cacd9688b8fff660ff5d368ab7f76465f[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Fri Jul 19 08:53:00 2024 +0545
+
+    server created by express
+
+[33mcommit 2ab05a01e5a34cc85ee4f817be1d3df973f0e8e8[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Fri Jul 19 08:17:00 2024 +0545
+
+    created server from http
+
+[33mcommit e9bc5986e4b7801327ce1800127e91f6f186d576[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Thu Jul 18 23:25:39 2024 +0545
+
+    node CRUD operation
+
+[33mcommit d6f49bcc6394fd3b50979e63e0a0e78f896a4899[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Thu Jul 18 08:50:40 2024 +0545
+
+    node js internal and external import start
+
+[33mcommit fd2e6111dd4a56d5848cd56c1ed273f7a4801776[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Thu Jul 18 07:25:36 2024 +0545
+
+    clear textfield in multistepform after submit
+
+[33mcommit 5049ee64a62ab49b8f1211114ab30634e6146bfd[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Wed Jul 17 23:14:38 2024 +0545
+
+    multiplestepform original final
+
+[33mcommit faec5469f82fba5133893d25948775af4fc6d78d[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Wed Jul 17 08:57:12 2024 +0545
+
+    form validation completed
+
+[33mcommit 1e1ead25eea48fcb23cefd8069ffa7b5c96a1b74[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Tue Jul 16 22:06:57 2024 +0545
+
+    reg move update
+
+[33mcommit 4821cf78cfe02213c23f44d8103d0313aea8c283[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Tue Jul 16 21:53:53 2024 +0545
+
+    login signup contact
+
+[33mcommit 82db20a900c5262cacfab3e1f8d2a874ac04b43e[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Tue Jul 16 14:54:16 2024 +0545
+
+    todo app using state and component
+
+[33mcommit 76dc76781be034ef534bcae1d2d1d94101b02cc9[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Tue Jul 16 11:52:53 2024 +0545
+
+    lifecycle of class component
+
+[33mcommit 9c5fc10bcdccfb36d4a22e8bf2b1c683fb8735ca[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Mon Jul 15 21:58:36 2024 +0545
+
+    listview
+
+[33mcommit addfdd77f68c7a8225d5991b19649c82a05e6222[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Mon Jul 15 09:01:28 2024 +0545
+
+    prop drilling
+
+[33mcommit 9c55997be622d8dd3b610923559dbeb1fe01e1c5[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Fri Jul 12 09:06:58 2024 +0545
+
+    shop data map
+
+[33mcommit 31ff3a8089a421fcb29a8a105f8640881ebdf46b[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Thu Jul 11 19:02:28 2024 +0545
+
+    component questions solved
+
+[33mcommit 6793ece9781c954e357772187751c5086a9624a2[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Thu Jul 11 15:39:48 2024 +0545
+
+    Navbar and npm install
+
+[33mcommit 40baa445ef68ada6290916a2733188872b8ac0bd[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Wed Jul 10 18:45:51 2024 +0545
+
+    testing
+
+[33mcommit b7118ed36256e3fece7f94f5e873f9dc4349aa75[m
+Author: ruchibajra <ruchibajracharya8@gmail.com>
+Date:   Wed Jul 10 18:41:27 2024 +0545
+
+    first commit

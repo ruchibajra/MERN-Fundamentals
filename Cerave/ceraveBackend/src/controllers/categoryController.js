@@ -116,7 +116,6 @@ const deleteCategory = async (req, res) => {
 
 
 // controller for getting all categories
-
 const getCategories = async (req, res) => {
   try {
     const categories = await Category.find();

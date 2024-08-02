@@ -1,7 +1,8 @@
 import "./App.css";
 import React from "react";
-import Navbar from "./components/Navbar/navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import Navbar from "./components/Navbar/navbar";
 import LifecycleComponent from "./components/LifecycleComponent/LifecycleComponent";
 import ProductComponent from "./components/Product/ProductComponent";
 import ToDoApp from "./components/ToDo/ToDoApp";

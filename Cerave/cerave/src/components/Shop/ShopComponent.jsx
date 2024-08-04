@@ -49,19 +49,16 @@
 
 // export default ShopComponent;
 
-import React from 'react'
+import React from "react";
+import Timer from "../Watch/TimerWatchComponent";
 
 const ShopComponent = () => {
-  // const handleClick = () => {
-  //   alert('added to cart')
-  // }
   return (
     <>
-    <div className='mx-2'>Shop hiii Component</div>
-    {/* <button onButtonClick={handleClick} className='bg-blue-400 text-white mx-2 rounded p-1'>Buy Now!!!</button> */}
+      <div>Shop Component</div>
+      <Timer />
     </>
-  )
-}
+  );
+};
 
-export default ShopComponent
-
+export default ShopComponent;

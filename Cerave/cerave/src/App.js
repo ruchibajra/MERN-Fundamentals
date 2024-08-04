@@ -11,6 +11,7 @@ import Login from "./components/Login/Login";
 import ContactForm from "./components/ContactForm/ContactForm";
 import MultipleStepForm from "./components/MultipleStepForm/MultipleStepForm";
 import MultipleForm2 from "./components/EventRegistrationForm/MultipleForm2";
+import ShopComponent from "./components/Shop/ShopComponent";
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<MultipleForm2/>}> </Route>
-            <Route path="/about" element={<ToDoApp />} />
+            <Route path="/about" element={<ShopComponent />} />
             <Route path="/shop" element={<LifecycleComponent />} />
             <Route path="/product" element={<ProductComponent />} />
             <Route path="/contact" element={<ContactForm />} />

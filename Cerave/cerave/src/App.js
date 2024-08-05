@@ -12,6 +12,10 @@ import ContactForm from "./components/ContactForm/ContactForm";
 import MultipleStepForm from "./components/MultipleStepForm/MultipleStepForm";
 import MultipleForm2 from "./components/EventRegistrationForm/MultipleForm2";
 import ShopComponent from "./components/Shop/ShopComponent";
+import CardComponent from "./components/Card/CardComponent";
+import HomeComponent from "./components/Home/HomeComponent";
+import RegisterIntegration from "./components/RegisterIntegration/RegisterIntegration";
+import LoginIntegration from "./components/LoginIntegration/LoginIntegration";
 
 function App() {
 
@@ -21,13 +25,13 @@ function App() {
         <div>
           <Navbar />
           <Routes>
-            <Route path="/" element={<MultipleForm2/>}> </Route>
+            <Route path="/" element={<HomeComponent/>}> </Route>
             <Route path="/about" element={<ShopComponent />} />
             <Route path="/shop" element={<LifecycleComponent />} />
             <Route path="/product" element={<ProductComponent />} />
             <Route path="/contact" element={<ContactForm />} />
-            <Route path="/signup" element={<Registration/>} />
-            <Route path="/login" element={<Login/>}/>
+            <Route path="/signup" element={<RegisterIntegration/>} />
+            <Route path="/login" element={<LoginIntegration/>}/>
             <Route path="/event" element={<MultipleStepForm/>}/>
           </Routes>
         </div>

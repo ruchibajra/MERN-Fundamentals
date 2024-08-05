@@ -174,11 +174,14 @@ const authRoutes =require('./src/routes/authRoutes')
 const profileRoutes = require("./src/routes/profileRoutes");
 const productRoutes = require("./src/routes/productRoutes");
 const categoryRoutes = require("./src/routes/categoryRoutes");
+const  cors =require('cors');
 
 
 // from express
 const app=express();
 const port=5000;
+app.use(cors());
+
 connectDB();
 
 require("dotenv").config();

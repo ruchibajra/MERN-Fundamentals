@@ -44,6 +44,7 @@ const LoginIntegration = () => {
         console.log(response);
         // set token in local storage
         localStorage.setItem("token", response.data.token);
+        console.log(response.data.token);
 
         // show success message
         toast.success("Login successful");

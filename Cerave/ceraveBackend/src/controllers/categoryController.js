@@ -39,29 +39,6 @@ const createCategory = async (req, res) => {
 };
 
 
-// const updateCategory = async (req, res) => {
-//   try{
-//     const {name, description} = req.body;
-//     let updateData = {name, description};
-
-//     const category = await Category.findByIdAndUpdate(req.params.id, updateData, {
-//       new: true,
-//     });
-
-//     if(!category){
-//       return res.status(404).json({ msg: "Category not found" });
-//     }
-
-//     res.status(200).json({
-//       msg: "Category updated successfully",
-//       category: category,
-//       success: true,
-//     });
-//   } catch (error){
-//     sendErrorResponse(res, error);
-//   }
-// };
-
 // controller for updating a category
 const updateCategory = async (req, res) => {
   const { name, description } = req.body;
@@ -96,10 +73,6 @@ const updateCategory = async (req, res) => {
   }
 };
 
-
-
-
-
 // controller for deleting a category
 const deleteCategory = async (req, res) => {
   try {
@@ -112,8 +85,6 @@ const deleteCategory = async (req, res) => {
     return res.status(500).json({ msg: error.message });
   }
 };
-
-
 
 // controller for getting all categories
 const getCategories = async (req, res) => {
@@ -128,7 +99,6 @@ const getCategories = async (req, res) => {
 };
 
 // controller for getting a single category
-
 const getCategory = async (req, res) => {
   try {
     const category = await Category.findById(req.params.id);

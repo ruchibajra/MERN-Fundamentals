@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { productImage } = require('../middleware/uploadMiddleware');
 const authMiddleware = require('../middleware/authMiddleware');
-const authorizeRole = require('../Middleware/authorizationMiddleware');
+const authorizeRole = require('../middleware/authorizationMiddleware');
 const {
   createProduct,
   updateProduct,

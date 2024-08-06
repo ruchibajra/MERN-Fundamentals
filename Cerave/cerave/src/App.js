@@ -16,6 +16,7 @@ import CardComponent from "./components/Card/CardComponent";
 import HomeComponent from "./components/Home/HomeComponent";
 import RegisterIntegration from "./components/RegisterIntegration/RegisterIntegration";
 import LoginIntegration from "./components/LoginIntegration/LoginIntegration";
+import CategoryIntegration from "./components/CategoryIntegration/CategoryIntegration";
 
 function App() {
 
@@ -33,6 +34,8 @@ function App() {
             <Route path="/signup" element={<RegisterIntegration/>} />
             <Route path="/login" element={<LoginIntegration/>}/>
             <Route path="/event" element={<MultipleStepForm/>}/>
+            <Route path="/category" element={<CategoryIntegration/>}/>
+
           </Routes>
         </div>
       </Router>

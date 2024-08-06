@@ -63,9 +63,9 @@ const RegisterIntegration = () => {
         toast.success("Registration successful");
 
         // navigate to login page
-        // setTimeout(() => {
-        //   navigate("/login");
-        // }, 2000);
+        setTimeout(() => {
+          navigate("/login");
+        }, 2000);
       } catch (error) {
         console.error(error.message);
         toast.error(error.response.data.msg);

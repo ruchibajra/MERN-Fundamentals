@@ -14,7 +14,7 @@ const CategoryIntegration = () => {
     fetchCategories();
   }, []);
 
-  const fetchCategories = async () => {
+  const  fetchCategories = async () => {
     try {
       const response = await axiosInstance.get("/api/category/all");
       // console.log(response);
@@ -76,9 +76,7 @@ const CategoryIntegration = () => {
       <form onSubmit={handleSubmit} className="mb-4">
         <ToastContainer />
         <div className="flex flex-col mb-2">
-          <label htmlFor="name" className="mb-1">
-            Category Name
-          </label>
+          <label htmlFor="name" className="mb-1"> Category Name </label>
           <input
             type="text"
             name="name"
@@ -90,9 +88,7 @@ const CategoryIntegration = () => {
           />
         </div>
         <div className="flex flex-col mb-2">
-          <label htmlFor="description" className="mb-1">
-            Category Description
-          </label>
+          <label htmlFor="description" className="mb-1">Category Description</label>
           <textarea
             name="description"
             id="description"
@@ -102,10 +98,7 @@ const CategoryIntegration = () => {
             required
           ></textarea>
         </div>
-        <button
-          type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded"
-        >
+        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
           {editingCategory ? "Update Category" : "Add Category"}
         </button>
       </form>

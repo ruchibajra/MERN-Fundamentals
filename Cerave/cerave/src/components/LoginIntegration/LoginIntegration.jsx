@@ -5,6 +5,8 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useDispatch } from "react-redux";
+import { login } from "../../features/auth/authSlice";
 
 const LoginIntegration = () => {
   const [loginData, setLoginData] = useState({
@@ -14,6 +16,7 @@ const LoginIntegration = () => {
 
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -41,10 +44,13 @@ const LoginIntegration = () => {
           "http://localhost:5000/api/auth/login",
           loginData
         );
-        console.log(response);
+        // console.log(response.data);
         // set token in local storage
-        localStorage.setItem("token", response.data.token);
-        console.log(response.data.token);
+        const { token,user} = response.data;
+        localStorage.setItem("token", token);
+        // console.log(response.data.token);
+        // Dispatch the login action with the role
+        dispatch(login({ token, role: user.role }));
 
         // show success message
         toast.success("Login successful");

@@ -9,7 +9,7 @@ const AddProductComponent = () => {
     name: "",
     price: "",
     description: "",
-    productImage: null,
+    productImage: "",
     brand: "",
     rating: "",
     numReviews: "",
@@ -36,8 +36,8 @@ const AddProductComponent = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const data = new FormData(); //form data if there is image to be added
-    data.append("category", formData.category); //category name price all defined name from db
+    const data = new FormData();
+    data.append("category", formData.category);
     data.append("name", formData.name);
     data.append("price", formData.price);
     data.append("description", formData.description);
@@ -47,30 +47,43 @@ const AddProductComponent = () => {
     data.append("numReviews", formData.numReviews);
     data.append("countInStock", formData.countInStock);
 
+    console.log("Data:", data);
+    console.log("FormData:", formData);
+
     try {
-      const response = await axiosInstance.post("/api/product/create", data);
+      const response = await axiosInstance.post("/api/products", data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       toast.success(response.data.msg);
       console.log("Product added successfully:", response.data);
     } catch (error) {
-      toast.error(error.response.data.msg);
       console.error("Error adding product:", error);
+      toast.error(error.response?.data?.msg || "An error occurred");
     }
   };
 
-  //   to get category from the database
   useEffect(() => {
-    const fetchCategory = async () => {
+    const fetchCategories = async () => {
       try {
         const response = await axiosInstance.get("/api/category/all");
-        // console.log("Category fetched successfully:", response.data.categories);
-        setCategory(response.data.categories);
+        const categories = response.data.categories;
+        setCategory(categories);
+
+        // Set default category to the first one if available
+        if (categories.length > 0) {
+          setFormData((prevFormData) => ({
+            ...prevFormData,
+            category: categories[0]._id,
+          }));
+        }
       } catch (error) {
-        console.error("Error fetching category:", error);
+        console.error("Error fetching categories:", error);
       }
     };
-    fetchCategory();
+    fetchCategories();
   }, []);
-
 
   return (
     <form
@@ -198,12 +211,14 @@ const AddProductComponent = () => {
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
-      <button
-        type="submit"
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-      >
-        Add Product
-      </button>
+      <div className="flex items-center justify-between">
+        <button
+          type="submit"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Add Product
+        </button>
+      </div>
     </form>
   );
 };

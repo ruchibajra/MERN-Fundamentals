@@ -10,7 +10,7 @@ const {
   getProduct,
   getProducts,
   getProductsByCategory,
-} = require('../Controllers/productController');
+} = require('../controllers/productController');
 
 
 /**
@@ -21,7 +21,7 @@ const {
  * @param {Object} res - Express response object
  * @returns {Object} response - The response object containing the created product
  */
-router.post('/create', authMiddleware, authorizeRole('admin'), productImage.single('productImage'), createProduct);
+router.post('/', authMiddleware, authorizeRole('admin'), productImage.single('productImage'), createProduct);
 
 /**
  * @description Update an existing product

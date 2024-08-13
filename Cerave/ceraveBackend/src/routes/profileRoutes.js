@@ -13,7 +13,7 @@ const auth = require('../middleware/authMiddleware');
  * @type PUT
  * @return response
  */
-router.put('/update', auth, profileImage.single('profileImage'), profileController.updateUserProfile);
+    router.put('/update', auth, profileImage.single('profileImage'), profileController.updateUserProfile);
 
 /**
  * @description To get the authenticated user's profile

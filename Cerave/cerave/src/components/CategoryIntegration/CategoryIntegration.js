@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
-const CategoryIntegration = () => {
+const CategoryComponent = () => {
   const [categories, setCategories] = useState([]);
   const [newCategory, setNewCategory] = useState({ name: "", description: "" });
   const [editingCategory, setEditingCategory] = useState(null);
@@ -14,10 +14,10 @@ const CategoryIntegration = () => {
     fetchCategories();
   }, []);
 
-  const  fetchCategories = async () => {
+  const fetchCategories = async () => {
     try {
       const response = await axiosInstance.get("/api/category/all");
-      // console.log(response);
+      // console.log(response.data.categories);
       setCategories(response.data.categories);
     } catch (error) {
       console.error("Error fetching categories:", error);
@@ -26,8 +26,12 @@ const CategoryIntegration = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setNewCategory({ ...newCategory, [name]: value });
+    // const name = e.target.name;
+    // const value = e.target.value;
+    setNewCategory({ ...newCategory,[name]: value });
   };
+
+  // console.log(newCategory);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -44,6 +48,7 @@ const CategoryIntegration = () => {
           "/api/category/create",
           newCategory
         );
+        // console.log(response);
         toast.success(response.data.msg);
       }
       setNewCategory({ name: "", description: "" });
@@ -61,7 +66,18 @@ const CategoryIntegration = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await axiosInstance.delete(`/api/category/delete/${id}`);
+      const token=localStorage.getItem("token");
+      const response = await axios.delete(
+        `http://localhost:5000/api/category/delete/${id}`,
+        {
+          headers: {
+            Authorization: token,
+            // if Bearer is not present in your token
+            // Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      // console.log(response);
       toast.success(response.data.msg);
       fetchCategories();
     } catch (error) {
@@ -70,13 +86,17 @@ const CategoryIntegration = () => {
     }
   };
 
+
+  
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Manage Categories</h1>
       <form onSubmit={handleSubmit} className="mb-4">
         <ToastContainer />
         <div className="flex flex-col mb-2">
-          <label htmlFor="name" className="mb-1"> Category Name </label>
+          <label htmlFor="name" className="mb-1">
+            Category Name
+          </label>
           <input
             type="text"
             name="name"
@@ -88,7 +108,9 @@ const CategoryIntegration = () => {
           />
         </div>
         <div className="flex flex-col mb-2">
-          <label htmlFor="description" className="mb-1">Category Description</label>
+          <label htmlFor="description" className="mb-1">
+            Category Description
+          </label>
           <textarea
             name="description"
             id="description"
@@ -98,14 +120,17 @@ const CategoryIntegration = () => {
             required
           ></textarea>
         </div>
-        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+        <button
+          type="submit"
+          className="bg-blue-500 text-white px-4 py-2 rounded"
+        >
           {editingCategory ? "Update Category" : "Add Category"}
         </button>
       </form>
       <div>
         <h2 className="text-xl font-semibold mb-2">Category List</h2>
         <ul>
-          {categories.map((category) => (
+        {categories.map((category) => (
             <li
               key={category._id}
               className="flex justify-between items-center border-b border-gray-300 py-2"
@@ -136,4 +161,4 @@ const CategoryIntegration = () => {
   );
 };
 
-export default CategoryIntegration;
+export default CategoryComponent;

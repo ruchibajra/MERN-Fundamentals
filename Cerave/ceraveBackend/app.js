@@ -190,7 +190,7 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use("/uploads", express.static(__dirname + "/uploads")); /**making upload file public as it only take public file */
 app.use('/api/profile', profileRoutes);
-app.use('/api/product', productRoutes);
+app.use('/api/products', productRoutes);
 app.use('/api/category', categoryRoutes);
 
 
